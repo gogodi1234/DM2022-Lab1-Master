@@ -10,7 +10,7 @@ def format_rows(docs):
     """ format the text field and strip special characters """
     D = []
     for d in docs.data:
-        temp_d = " ".join(d.split("\n")).strip('\n\t')
+        temp_d = " ".join(d.split("\n")).strip('\n\t')   # 去掉頭尾的\n\t，順序無關
         D.append([temp_d])
     return D
 
@@ -31,8 +31,8 @@ def tokenize_text(text, remove_stopwords=False):
     Tokenize text using the nltk library
     """
     tokens = []
-    for d in nltk.sent_tokenize(text, language='english'):
-        for word in nltk.word_tokenize(d, language='english'):
+    for d in nltk.sent_tokenize(text, language='english'):      #sent_tokenize => 斷句
+        for word in nltk.word_tokenize(d, language='english'):   #word_tokenize => 斷詞
             # filters here
             tokens.append(word)
     return tokens
