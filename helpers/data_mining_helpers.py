@@ -1,4 +1,5 @@
 import nltk
+import os
 
 """
 Helper functions for data mining lab session 2018 Fall Semester
@@ -36,3 +37,15 @@ def tokenize_text(text, remove_stopwords=False):
             # filters here
             tokens.append(word)
     return tokens
+
+def split_txt(filename):
+    sentence = []
+    score = []
+    path = 'data'
+    with open(os.path.join(path,filename), 'r', encoding = 'utf-8') as f:
+        for line in iter(f):
+            #print(line)
+            l = line.split('\t')
+            sentence.append(l[0].strip(' '))
+            score.append(l[1].strip('\n'))
+    return sentence, score
