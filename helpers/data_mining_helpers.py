@@ -49,3 +49,4 @@ def split_txt(filename):
             sentence.append(l[0].strip(' '))
             score.append(l[1].strip('\n'))
     return sentence, score
+
